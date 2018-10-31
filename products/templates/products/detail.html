@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<title>Base Template</title>
+
+{% block content %}
+        <div class="row">
+            <div class="col">
+            <h1>{{ object.title }}</h1>
+            {{ object.timestamp }}<br/>
+            {{ object.timestamp|timesince }} ago <br/>
+            <!-- <h3>{{ "Some title here"| title }}</h3> -->
+            {{ object.description|linebreaks }}<br/>
+            {% if object.image %}
+                <img src="{{ object.image.url }}" class="img-fluid" />
+            {% endif %}
+            </div>
+        </div>
+
+{% endblock %}
